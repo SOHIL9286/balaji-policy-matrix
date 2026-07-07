@@ -4,6 +4,7 @@ import { HeroNavbar } from '@/components/home/HeroNavbar'
 import { FloatingGlassCards } from '@/components/home/FloatingGlassCards'
 import { Shield3D } from '@/components/home/Shield3D'
 import { StatCounters } from '@/components/home/StatCounters'
+import ScrollIndicator from '@/components/ui/ScrollIndicator'
 
 export function HeroSection() {
   return (
@@ -41,6 +42,9 @@ export function HeroSection() {
         id="contact"
         className="pointer-events-none absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-black/20 to-transparent"
       />
+      <div className="absolute bottom-6 left-0 right-0 z-20 pointer-events-auto">
+        <ScrollIndicator />
+      </div>
     </section>
   )
 }
