@@ -1,9 +1,9 @@
-import { Link, NavLink, useNavigate } from 'react-router-dom'
+import { Link, NavLink } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
 import { ROUTES } from '@/config/routes'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
-import { Search, Bell, User, Menu, X } from 'lucide-react'
+import { Search, Bell, Menu, X } from 'lucide-react'
 import { useEffect, useState, useRef } from 'react'
 import { SERVICE_CATEGORIES } from '@/components/services'
 
@@ -22,7 +22,6 @@ export function Header({ className }: HeaderProps) {
   const servicesButtonRef = useRef<HTMLButtonElement | null>(null)
   const firstMenuItemRef = useRef<HTMLAnchorElement | null>(null)
   const menuRef = useRef<HTMLDivElement | null>(null)
-  const navigate = useNavigate()
 
   useEffect(() => {
     function onScroll() {
@@ -83,7 +82,7 @@ export function Header({ className }: HeaderProps) {
               if (e.key === 'Escape') setOpenServices(false)
             }}
             aria-haspopup="true"
-            aria-expanded={openServices ? 'true' : 'false'}
+            aria-expanded={openServices}
             className={cn('px-2 py-1 rounded-md text-sm font-medium', openServices ? 'text-brand-primary' : 'text-muted')}
           >
             Services
@@ -153,16 +152,26 @@ export function Header({ className }: HeaderProps) {
             className="hidden md:block border-t border-border bg-background/90 backdrop-blur-md"
           >
             <div className="mx-auto max-w-7xl px-4 py-8">
-                  <div id="header-services-menu" className="grid grid-cols-3 gap-6" role="region" aria-label="Services menu" ref={menuRef} aria-labelledby="header-services-btn">
-                    {SERVICE_CATEGORIES.map((cat, catIndex) => (
-                      <div key={cat.key}>
-                        <h4 className="font-semibold mb-3">{cat.title}</h4>
-                        <ul className="space-y-2 text-sm text-muted">
-                          {cat.items.map((it, idx) => (
-                            <li key={it.slug}>
-                              <Link
-                                to={`/services/${it.slug}`}
-                                className="hover:underline"
+              <div id="header-services-menu" className="grid grid-cols-3 gap-6" role="region" aria-label="Services menu" ref={menuRef} aria-labelledby="header-services-btn">
+                {SERVICE_CATEGORIES.map((cat, catIndex) => (
+                  <div key={cat.key}>
+                    <h4 className="font-semibold mb-3">{cat.title}</h4>
+                    <ul className="space-y-2 text-sm text-muted">
+                      {cat.items.map((it, idx) => (
+                        <li key={it.slug}>
+                          <Link
+                            to={`/services/${it.slug}`}
+                            className="hover:underline"
+                            tabIndex={catIndex === 0 && idx === 0 ? 0 : -1}
+                            ref={catIndex === 0 && idx === 0 ? firstMenuItemRef : undefined}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Escape') setOpenServices(false)
+                            }}
+                          >
+                            {it.label}
+                          </Link>
+                        </li>
+                      ))}
                     </ul>
                   </div>
                 ))}

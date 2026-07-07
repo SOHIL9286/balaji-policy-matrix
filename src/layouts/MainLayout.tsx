@@ -1,8 +1,10 @@
+import type { ReactNode } from 'react'
 import { Outlet } from 'react-router-dom'
 import { Footer, Header } from '@/components/layout'
 import { cn } from '@/lib/utils'
 
 type MainLayoutProps = {
+  children?: ReactNode
   className?: string
 }
 

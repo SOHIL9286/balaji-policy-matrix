@@ -1,7 +1,5 @@
-import { Link } from 'react-router-dom'
 import { Seo } from '@/components/seo'
 import { siteConfig } from '@/config/site'
-import { ROUTES } from '@/config/routes'
 import ServicesList from '@/components/services'
 
 export function ServicesPage() {

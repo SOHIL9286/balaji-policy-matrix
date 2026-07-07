@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import type { Variants } from 'framer-motion'
 import { ArrowRight, Sparkles } from 'lucide-react'
 import balajiLogo from '@/assets/balaji-logo.svg'
 import { siteConfig } from '@/config/site'
@@ -8,14 +9,14 @@ import { gsap } from '@/lib/gsap'
 export function HeroContent() {
   const contentRef = useRef<HTMLDivElement>(null)
 
-  const container = {
+  const container: Variants = {
     hidden: {},
     show: { transition: { staggerChildren: 0.08, delayChildren: 0.2 } },
   }
 
-  const item = {
+  const item: Variants = {
     hidden: { y: 18, opacity: 0 },
-    show: { y: 0, opacity: 1, transition: { duration: 0.7, ease: 'easeOut' } },
+    show: { y: 0, opacity: 1, transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } },
   }
 
   useEffect(() => {
