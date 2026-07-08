@@ -2,7 +2,6 @@ import { HeroBackground } from '@/components/home/HeroBackground'
 import { HeroContent } from '@/components/home/HeroContent'
 import { HeroNavbar } from '@/components/home/HeroNavbar'
 import { FloatingGlassCards } from '@/components/home/FloatingGlassCards'
-import { Shield3D } from '@/components/home/Shield3D'
 import { StatCounters } from '@/components/home/StatCounters'
 import ScrollIndicator from '@/components/ui/ScrollIndicator'
 
@@ -21,13 +20,7 @@ export function HeroSection() {
           <HeroContent />
 
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
-            <div className="relative mx-auto h-[280px] w-full sm:h-[340px] lg:h-[480px]">
-              <div className="hidden lg:block">
-                <FloatingGlassCards />
-              </div>
-              <Shield3D className="h-full w-full" />
-            </div>
-            <div className="mt-6 lg:hidden">
+            <div className="relative mx-auto flex min-h-[320px] w-full items-center justify-center sm:min-h-[380px] lg:min-h-[520px]">
               <FloatingGlassCards />
             </div>
           </div>
