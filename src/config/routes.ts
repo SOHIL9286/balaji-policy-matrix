@@ -13,6 +13,16 @@ export const ROUTES = {
   claimTracking: '/claim-tracking',
   downloads: '/downloads',
   portal: '/portal',
+  portalLogin: '/portal/login',
+  portalDashboard: '/portal/dashboard',
+  portalPolicies: '/portal/policies',
+  portalPolicyDetail: '/portal/policies/:id',
+  portalDocuments: '/portal/documents',
+  portalRenewals: '/portal/renewals',
+  portalClaims: '/portal/claims',
+  portalProfile: '/portal/profile',
+  portalNotifications: '/portal/notifications',
+  portalSettings: '/portal/settings',
   reminders: '/reminders',
 } as const
 

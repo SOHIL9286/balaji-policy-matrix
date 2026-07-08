@@ -1,9 +1,11 @@
+import React, { Suspense, lazy } from 'react'
 import { HeroBackground } from '@/components/home/HeroBackground'
 import { HeroContent } from '@/components/home/HeroContent'
 import { HeroNavbar } from '@/components/home/HeroNavbar'
-import { FloatingGlassCards } from '@/components/home/FloatingGlassCards'
-import { StatCounters } from '@/components/home/StatCounters'
 import ScrollIndicator from '@/components/ui/ScrollIndicator'
+
+const FloatingGlassCards = lazy(() => import('@/components/home/FloatingGlassCards').then((m) => ({ default: m.FloatingGlassCards })))
+const StatCounters = lazy(() => import('@/components/home/StatCounters').then((m) => ({ default: m.StatCounters })))
 
 export function HeroSection() {
   return (
@@ -21,13 +23,17 @@ export function HeroSection() {
 
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">
             <div className="relative mx-auto flex min-h-[320px] w-full items-center justify-center sm:min-h-[380px] lg:min-h-[520px]">
-              <FloatingGlassCards />
+              <Suspense fallback={null}>
+                <FloatingGlassCards />
+              </Suspense>
             </div>
           </div>
         </div>
 
         <div id="services" className="mt-10 lg:mt-14">
-          <StatCounters />
+          <Suspense fallback={null}>
+            <StatCounters />
+          </Suspense>
         </div>
       </div>
 

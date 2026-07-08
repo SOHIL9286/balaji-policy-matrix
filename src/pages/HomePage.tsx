@@ -1,7 +1,9 @@
+import React, { Suspense, lazy } from 'react'
 import { Seo } from '@/components/seo'
-import { HeroSection } from '@/components/home'
-import { PremiumServices } from '@/components/home/PremiumServices'
 import { siteConfig } from '@/config/site'
+
+const HeroSection = lazy(() => import('@/components/home/HeroSection').then((m) => ({ default: m.HeroSection })))
+const PremiumServices = lazy(() => import('@/components/home/PremiumServices').then((m) => ({ default: m.PremiumServices })))
 
 export function HomePage() {
   return (
@@ -24,8 +26,13 @@ export function HomePage() {
           slogan: siteConfig.tagline,
         }}
       />
-      <HeroSection />
-      <PremiumServices />
+      <Suspense fallback={null}>
+        <HeroSection />
+      </Suspense>
+
+      <Suspense fallback={null}>
+        <PremiumServices />
+      </Suspense>
     </>
   )
 }
