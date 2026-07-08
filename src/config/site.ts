@@ -1,7 +1,7 @@
 export const siteConfig = {
-  name: 'BALAJI POLICY MATRIX LLP',
+  name: 'BALAJI POLICY MATRIX',
   shortName: 'Balaji Policy Matrix',
-  title: 'BALAJI POLICY MATRIX LLP | Insurance & Financial Solutions',
+  title: 'BALAJI POLICY MATRIX | Insurance & Financial Solutions',
   description:
     'Trusted insurance, finance, RTO services, and mutual fund solutions. Protect what matters most with 25+ years of expertise.',
   tagline: 'Insurance & Financial Solutions',
