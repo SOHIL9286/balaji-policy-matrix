@@ -33,16 +33,16 @@ export function StatCounters() {
   return (
     <div
       ref={sectionRef}
-      className="grid grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6 lg:gap-8"
+      className="mx-auto grid max-w-5xl grid-cols-2 gap-4 sm:grid-cols-4 sm:gap-6 lg:gap-8"
     >
       {stats.map((stat, index) => (
         <motion.div
           key={stat.label}
-          className="stat-item glass-panel rounded-2xl px-4 py-5 text-center sm:px-6 sm:py-6"
-          whileHover={{ y: -4, transition: { duration: 0.2 } }}
+          className="stat-item glass-panel rounded-[1.4rem] px-4 py-5 text-center sm:px-6 sm:py-6"
+          whileHover={{ y: -6, scale: 1.02, transition: { duration: 0.2 } }}
         >
           <AnimatedNumber value={isInView ? stat.value : 0} suffix={stat.suffix} delay={0.3 + index * 0.15} />
-          <p className="mt-1 text-xs font-medium text-white/70 sm:text-sm">
+          <p className="mt-2 text-[11px] font-semibold uppercase tracking-[0.28em] text-white/70 sm:text-xs">
             {stat.label}
           </p>
         </motion.div>
@@ -78,6 +78,6 @@ function AnimatedNumber({ value, suffix, delay = 0 }: { value: number; suffix?: 
   }, [value, delay])
 
   return (
-    <p className="text-2xl font-semibold tracking-tight text-white sm:text-3xl lg:text-4xl">{display}{suffix}</p>
+    <p className="text-3xl font-semibold tracking-[-0.03em] text-white sm:text-4xl lg:text-[2.35rem]">{display}{suffix}</p>
   )
 }

@@ -15,8 +15,8 @@ export function HeroSection() {
       <HeroBackground />
       <HeroNavbar />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 pb-10 pt-28 sm:px-6 lg:px-8 lg:pb-16 lg:pt-32">
-        <div className="grid flex-1 items-center gap-10 lg:grid-cols-2 lg:gap-8">
+      <div className="relative z-10 mx-auto flex w-full max-w-7xl flex-1 flex-col px-4 pb-10 pt-24 sm:px-6 sm:pt-28 lg:px-8 lg:pb-16 lg:pt-32">
+        <div className="grid flex-1 items-center gap-12 lg:grid-cols-[1.05fr_0.95fr] lg:gap-12 xl:gap-16">
           <HeroContent />
 
           <div className="relative mx-auto w-full max-w-lg lg:max-w-none">

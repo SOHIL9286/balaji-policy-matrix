@@ -95,7 +95,7 @@ function GlassCard({
         boxShadow: '0 24px 60px rgba(2, 132, 199, 0.28)',
       }}
       className={cn(
-        'group relative overflow-hidden rounded-[1.4rem] border border-white/15 bg-white/[0.08] p-4 shadow-[0_16px_50px_rgba(2,6,23,0.34)] backdrop-blur-2xl transition-all duration-300',
+        'group relative overflow-hidden rounded-[1.4rem] border border-white/20 bg-white/[0.08] p-4 shadow-[0_18px_60px_rgba(2,6,23,0.32)] backdrop-blur-2xl transition-all duration-300',
         className,
       )}
       style={style}
@@ -103,10 +103,10 @@ function GlassCard({
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(255,255,255,0.22),transparent_60%)]" />
       <div className="absolute inset-px rounded-[1.3rem] border border-white/10" />
       <div className="relative z-10">
-        <div className="mb-3 inline-flex rounded-2xl border border-white/10 bg-white/10 p-2.5 shadow-[0_0_25px_rgba(22,169,246,0.16)]">
+        <div className="mb-3 inline-flex rounded-2xl border border-white/15 bg-slate-950/30 p-2.5 shadow-[0_0_25px_rgba(22,169,246,0.16)]">
           <Icon className="h-5 w-5 text-cyan-100" />
         </div>
-        <h3 className="text-sm font-semibold text-white">{title}</h3>
+        <h3 className="text-sm font-semibold tracking-[0.02em] text-white">{title}</h3>
         <p className="mt-1 text-xs leading-relaxed text-white/70">{description}</p>
       </div>
     </motion.div>
@@ -119,7 +119,7 @@ function BrandCore() {
       initial={{ opacity: 0, scale: 0.92, y: 24 }}
       animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
       transition={{ delay: 0.4, duration: 5.6, repeat: Number.POSITIVE_INFINITY, repeatType: 'mirror', ease: 'easeInOut' }}
-      className="relative flex h-44 w-44 items-center justify-center rounded-[2rem] border border-white/20 bg-white/[0.08] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_30px_80px_rgba(2,6,23,0.45)] backdrop-blur-2xl sm:h-52 sm:w-52 lg:h-60 lg:w-60"
+      className="relative flex h-44 w-44 items-center justify-center rounded-[2.15rem] border border-white/20 bg-white/[0.08] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_30px_90px_rgba(2,6,23,0.46)] backdrop-blur-2xl sm:h-52 sm:w-52 lg:h-60 lg:w-60"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
         <div className="absolute left-6 top-6 h-24 w-24 rounded-full bg-cyan-400/30 blur-3xl" />
@@ -148,7 +148,7 @@ function BrandCore() {
         className="pointer-events-none absolute inset-2 rounded-full border border-brand-accent/20"
       />
 
-      <div className="relative z-10 flex items-center justify-center rounded-[1.5rem] border border-white/15 bg-slate-950/35 p-4 shadow-[0_12px_40px_rgba(2,6,23,0.3)]">
+      <div className="relative z-10 flex items-center justify-center rounded-[1.6rem] border border-white/15 bg-slate-950/35 p-4 shadow-[0_16px_45px_rgba(2,6,23,0.35)]">
         <img src={balajiLogo} alt="Balaji Policy Matrix LLP logo" className="w-[9rem] max-w-full sm:w-[10.5rem] lg:w-[11.5rem]" />
       </div>
     </motion.div>
@@ -189,7 +189,7 @@ export function FloatingGlassCards() {
               d={card.connector}
               fill="none"
               stroke="url(#connectorGradient)"
-              strokeWidth="0.7"
+              strokeWidth="0.9"
               strokeLinecap="round"
               initial={{ pathLength: 0, opacity: 0.2 }}
               animate={{ pathLength: 1, opacity: [0.2, 0.65, 0.2] }}
@@ -209,7 +209,7 @@ export function FloatingGlassCards() {
               initial={{ opacity: 0, y: 24, scale: 0.96 }}
               animate={{ opacity: 1, y: [0, -8, 0], x: [0, offsetX / 8, 0], scale: [1, 1.01, 1] }}
               transition={{ delay: 0.7 + card.delay, duration: 6 + card.delay, repeat: Number.POSITIVE_INFINITY, repeatType: 'mirror', ease: 'easeInOut' }}
-              className={cn('pointer-events-auto absolute w-56', card.position)}
+              className={cn('pointer-events-auto absolute w-56 max-w-[13.5rem] sm:w-60', card.position)}
             >
               <GlassCard
                 icon={card.icon}
