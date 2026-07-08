@@ -1,7 +1,6 @@
 import { Seo } from '@/components/seo'
 import { siteConfig } from '@/config/site'
 import { AboutSections } from '@/components/about'
-import CompanyTrust from '@/components/trust'
 
 export function AboutPage() {
   return (
@@ -12,7 +11,6 @@ export function AboutPage() {
         keywords={[...siteConfig.keywords, 'about', 'company']}
       />
       <AboutSections />
-      <CompanyTrust />
     </>
   )
 }
