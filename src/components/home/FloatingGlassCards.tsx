@@ -119,7 +119,7 @@ function BrandCore() {
       initial={{ opacity: 0, scale: 0.92, y: 24 }}
       animate={{ opacity: 1, scale: 1, y: [0, -10, 0] }}
       transition={{ delay: 0.4, duration: 5.6, repeat: Number.POSITIVE_INFINITY, repeatType: 'mirror', ease: 'easeInOut' }}
-      className="relative flex h-44 w-44 items-center justify-center rounded-[2.15rem] border border-white/20 bg-white/[0.08] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_30px_90px_rgba(2,6,23,0.46)] backdrop-blur-2xl sm:h-52 sm:w-52 lg:h-60 lg:w-60"
+      className="relative flex h-44 w-44 items-center justify-center rounded-[2.15rem] border border-white/20 bg-white/[0.08] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_30px_90px_rgba(2,6,23,0.46)] sm:h-52 sm:w-52 lg:h-60 lg:w-60"
     >
       <div className="pointer-events-none absolute inset-0 overflow-hidden rounded-[2rem]">
         <div className="absolute left-6 top-6 h-24 w-24 rounded-full bg-cyan-400/30 blur-3xl" />
@@ -148,8 +148,13 @@ function BrandCore() {
         className="pointer-events-none absolute inset-2 rounded-full border border-brand-accent/20"
       />
 
-      <div className="relative z-10 flex items-center justify-center rounded-[1.6rem] border border-white/15 bg-slate-950/35 p-4 shadow-[0_16px_45px_rgba(2,6,23,0.35)]">
-        <img src={balajiLogo} alt="Balaji Policy Matrix LLP logo" className="w-[9rem] max-w-full sm:w-[10.5rem] lg:w-[11.5rem]" />
+      <div className="relative z-10 flex items-center justify-center rounded-[1.6rem] border border-white/15 bg-white/95 p-4 shadow-[0_16px_45px_rgba(2,6,23,0.35)]">
+        <img
+          src={balajiLogo}
+          alt="Balaji Policy Matrix LLP logo"
+          className="w-[9rem] max-w-full object-contain drop-shadow-[0_6px_16px_rgba(0,0,0,0.18)] sm:w-[10.5rem] lg:w-[11.5rem]"
+          style={{ imageRendering: 'auto' }}
+        />
       </div>
     </motion.div>
   )

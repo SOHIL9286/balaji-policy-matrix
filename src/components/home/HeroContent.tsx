@@ -47,7 +47,8 @@ export function HeroContent() {
         variants={item}
         src={balajiLogo}
         alt={siteConfig.shortName}
-        className="mb-8 h-14 w-auto sm:h-16 lg:hidden"
+        className="mb-8 h-14 w-auto object-contain drop-shadow-[0_4px_12px_rgba(0,0,0,0.22)] sm:h-16 lg:hidden"
+        style={{ imageRendering: 'auto' }}
       />
 
       <motion.h1 variants={item} className="max-w-2xl text-[2.65rem] font-semibold leading-[0.95] tracking-[-0.03em] text-white sm:text-[3.55rem] lg:text-[4.35rem] xl:text-[5.2rem]">

@@ -49,7 +49,8 @@ export function HeroNavbar() {
             <img
               src={balajiLogo}
               alt={siteConfig.shortName}
-              className="h-9 w-auto sm:h-10"
+              className="h-9 w-auto object-contain drop-shadow-[0_4px_10px_rgba(0,0,0,0.22)] sm:h-10"
+              style={{ imageRendering: 'auto' }}
             />
             <div className="hidden min-w-0 sm:block">
               <p className="truncate text-sm font-semibold tracking-[0.2em] text-white sm:text-[0.95rem]">
