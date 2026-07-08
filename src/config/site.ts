@@ -23,6 +23,9 @@ export const siteConfig = {
   contact: {
     email: 'info@balajipolicymatrix.com',
     phone: '+91 XXXXX XXXXX',
+    address: 'Chennai, Tamil Nadu, India',
+    lat: 13.0827,
+    lng: 80.2707,
   },
 } as const
 

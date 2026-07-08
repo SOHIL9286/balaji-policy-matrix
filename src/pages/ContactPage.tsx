@@ -29,7 +29,7 @@ export function ContactPage() {
                 </div>
               </div>
               <div>
-                <Map address="Chennai, India" />
+                <Map address={siteConfig.contact.address} lat={siteConfig.contact.lat} lng={siteConfig.contact.lng} />
               </div>
             </aside>
           </div>
