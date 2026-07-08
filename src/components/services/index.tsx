@@ -2,45 +2,7 @@ import { Link } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { Shield, CreditCard, Truck } from 'lucide-react'
 import { useMemo, useState } from 'react'
-
-export const SERVICE_CATEGORIES = [
-  {
-    key: 'insurance',
-    title: 'Insurance',
-    items: [
-      { slug: 'car-insurance', label: 'Car Insurance' },
-      { slug: 'bike-insurance', label: 'Bike Insurance' },
-      { slug: 'health-insurance', label: 'Health Insurance' },
-      { slug: 'life-insurance', label: 'Life Insurance' },
-      { slug: 'commercial-vehicle-insurance', label: 'Commercial Vehicle Insurance' },
-      { slug: 'personal-accident-insurance', label: 'Personal Accident Insurance' },
-      { slug: 'travel-insurance', label: 'Travel Insurance' },
-    ],
-  },
-  {
-    key: 'finance',
-    title: 'Finance',
-    items: [
-      { slug: 'vehicle-finance', label: 'Vehicle Finance' },
-      { slug: 'home-loan', label: 'Home Loan' },
-      { slug: 'business-loan', label: 'Business Loan' },
-    ],
-  },
-  {
-    key: 'rto',
-    title: 'RTO Services',
-    items: [
-      { slug: 'driving-licence', label: 'Driving Licence' },
-      { slug: 'learning-licence', label: 'Learning Licence' },
-      { slug: 'rc-transfer', label: 'RC Transfer' },
-      { slug: 'hypothecation', label: 'Hypothecation' },
-      { slug: 'noc', label: 'NOC' },
-      { slug: 'fitness', label: 'Fitness' },
-      { slug: 'permit', label: 'Permit' },
-      { slug: 'tax', label: 'Tax' },
-    ],
-  },
-]
+import { SERVICE_CATEGORIES } from '@/config/services'
 
 export default function ServicesList() {
   const [filter, setFilter] = useState<'all' | string>('all')

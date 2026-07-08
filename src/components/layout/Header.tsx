@@ -5,7 +5,7 @@ import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Search, Bell, Menu, X } from 'lucide-react'
 import { useEffect, useState, useRef } from 'react'
-import { SERVICE_CATEGORIES } from '@/components/services'
+import { SERVICE_CATEGORIES } from '@/config/services'
 
 type HeaderProps = {
   className?: string

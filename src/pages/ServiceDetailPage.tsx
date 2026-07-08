@@ -1,35 +1,18 @@
 import { useParams } from 'react-router-dom'
 import { Seo } from '@/components/seo'
 import { siteConfig } from '@/config/site'
-
-const SERVICE_CONTENT: Record<string, { title: string; desc: string }> = {
-  'car-insurance': {
-    title: 'Car Insurance',
-    desc: 'Comprehensive car insurance solutions including third-party, own-damage and add-ons tailored for your vehicle.',
-  },
-  'bike-insurance': { title: 'Bike Insurance', desc: 'Affordable two-wheeler insurance with easy claim support.' },
-  'health-insurance': { title: 'Health Insurance', desc: 'Family floater and individual health plans with cashless network.' },
-  'life-insurance': { title: 'Life Insurance', desc: 'Term, endowment and investment-linked life policies.' },
-  'commercial-vehicle-insurance': { title: 'Commercial Vehicle Insurance', desc: 'Cover for commercial fleets and goods carriers.' },
-  'personal-accident-insurance': { title: 'Personal Accident Insurance', desc: 'Financial protection against accidental injury or death.' },
-  'travel-insurance': { title: 'Travel Insurance', desc: 'Short-term plans for domestic and international travel coverage.' },
-  'vehicle-finance': { title: 'Vehicle Finance', desc: 'Competitive finance packages for new and used vehicles.' },
-  'home-loan': { title: 'Home Loan', desc: 'Assistance with home financing options and documentation support.' },
-  'business-loan': { title: 'Business Loan', desc: 'Custom business loan solutions for working capital and expansion.' },
-  'driving-licence': { title: 'Driving Licence', desc: 'Assistance with application, testing and renewals.' },
-  'learning-licence': { title: 'Learning Licence', desc: 'Apply for or renew your learner licence with expert guidance.' },
-  'rc-transfer': { title: 'RC Transfer', desc: 'Smooth transfer of vehicle registration between owners.' },
-  'hypothecation': { title: 'Hypothecation', desc: 'Manage hypothecation and loan closure documentation.' },
-  'noc': { title: 'NOC', desc: 'Obtain No Objection Certificates (NOC) for vehicle transfers and loans.' },
-  'fitness': { title: 'Fitness', desc: 'Vehicle fitness certificate processing for commercial vehicles.' },
-  'permit': { title: 'Permit', desc: 'Apply for commercial permits and route permits.' },
-  'tax': { title: 'Tax', desc: 'Assistance with vehicle tax calculations and payments.' },
-}
+import { SERVICE_DETAILS } from '@/config/services'
 
 export function ServiceDetailPage() {
   const { slug } = useParams()
   const key = slug ?? ''
-  const content = SERVICE_CONTENT[key] ?? { title: 'Service', desc: 'Details coming soon.' }
+  const content = SERVICE_DETAILS[key] ?? {
+    title: 'Service',
+    desc: 'Details coming soon.',
+    hero: 'Premium service details are being prepared for this offering.',
+    features: ['Tailored coverage recommendations', 'Dedicated support', 'Transparent policy guidance'],
+    details: ['Reach out to our team to get custom service recommendations and premium support.'],
+  }
 
   return (
     <>
@@ -37,16 +20,49 @@ export function ServiceDetailPage() {
       <main className="py-16">
         <div className="container mx-auto px-6">
           <article className="glass-panel p-8 rounded-2xl">
-            <h1 className="text-3xl font-bold">{content.title}</h1>
-            <p className="mt-4 text-muted">{content.desc}</p>
-            <section className="mt-6">
-              <h3 className="text-xl font-semibold">Why choose our {content.title}</h3>
-              <ul className="mt-3 list-disc pl-5 text-muted space-y-2">
-                <li>Personalized advice and competitive premiums</li>
-                <li>Fast claim assistance and dedicated support</li>
-                <li>Flexible policy options and add-ons</li>
-              </ul>
-            </section>
+            <div className="space-y-6">
+              <div>
+                <p className="text-sm uppercase tracking-[0.3em] text-brand-primary">Service</p>
+                <h1 className="mt-3 text-4xl font-bold">{content.title}</h1>
+                <p className="mt-4 text-muted max-w-3xl">{content.desc}</p>
+              </div>
+
+              <div className="rounded-3xl border border-white/10 bg-white/5 p-6">
+                <p className="text-lg font-semibold">{content.hero}</p>
+              </div>
+
+              <div className="grid gap-8 lg:grid-cols-[2fr_1fr]">
+                <section className="space-y-6">
+                  <div>
+                    <h2 className="text-2xl font-semibold">What we cover</h2>
+                    <ul className="mt-4 list-disc pl-5 text-muted space-y-3">
+                      {content.features.map((feature) => (
+                        <li key={feature}>{feature}</li>
+                      ))}
+                    </ul>
+                  </div>
+
+                  <div>
+                    <h2 className="text-2xl font-semibold">How it works</h2>
+                    <div className="mt-4 space-y-3 text-muted">
+                      {content.details.map((detail) => (
+                        <p key={detail}>{detail}</p>
+                      ))}
+                    </div>
+                  </div>
+                </section>
+
+                <aside className="rounded-3xl border border-white/10 bg-background/80 p-6">
+                  <h3 className="text-xl font-semibold">Premium support</h3>
+                  <p className="mt-3 text-muted">{content.note ?? 'Receive expert guidance, fast claims support, and tailored policy recommendations.'}</p>
+                  <div className="mt-6 space-y-3 text-sm text-muted">
+                    <div className="rounded-2xl bg-white/5 p-4">Trusted insurers and transparent premiums.</div>
+                    <div className="rounded-2xl bg-white/5 p-4">Digital policy documents and renewal reminders.</div>
+                    <div className="rounded-2xl bg-white/5 p-4">Dedicated relationship manager for your service.</div>
+                  </div>
+                </aside>
+              </div>
+            </div>
           </article>
         </div>
       </main>
