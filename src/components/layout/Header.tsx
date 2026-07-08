@@ -82,7 +82,7 @@ export function Header({ className }: HeaderProps) {
               if (e.key === 'Escape') setOpenServices(false)
             }}
             aria-haspopup="true"
-            aria-expanded={openServices}
+            aria-expanded={openServices ? 'true' : 'false'}
             className={cn('px-2 py-1 rounded-md text-sm font-medium', openServices ? 'text-brand-primary' : 'text-muted')}
           >
             Services
@@ -184,13 +184,32 @@ export function Header({ className }: HeaderProps) {
       {/* Mobile drawer */}
       <AnimatePresence>
         {mobileOpen && (
-          <motion.div initial={{ x: -300 }} animate={{ x: 0 }} exit={{ x: -300 }} className="md:hidden fixed inset-y-0 left-0 z-50 w-72 bg-background/90 glass-panel p-4">
-            <nav className="space-y-3">
-              <Link to={ROUTES.services} onClick={() => setMobileOpen(false)} className="block">Services</Link>
-              <Link to={ROUTES.calculators} onClick={() => setMobileOpen(false)} className="block">Calculators</Link>
-              <Link to={ROUTES.blog} onClick={() => setMobileOpen(false)} className="block">Blog</Link>
-              <Link to={ROUTES.about} onClick={() => setMobileOpen(false)} className="block">About</Link>
-              <Link to={ROUTES.contact} onClick={() => setMobileOpen(false)} className="block">Contact</Link>
+          <motion.div initial={{ x: -300 }} animate={{ x: 0 }} exit={{ x: -300 }} className="md:hidden fixed inset-y-0 left-0 z-50 w-80 bg-background/90 glass-panel p-4 overflow-auto">
+            <nav className="space-y-4">
+              <div>
+                <div className="font-semibold mb-2">Services</div>
+                <div className="grid gap-3">
+                  {SERVICE_CATEGORIES.map((cat) => (
+                    <div key={cat.key}>
+                      <div className="text-sm font-medium mb-1">{cat.title}</div>
+                      <div className="pl-2">
+                        {cat.items.map((it) => (
+                          <Link key={it.slug} to={`/services/${it.slug}`} onClick={() => setMobileOpen(false)} className="block py-1 text-sm text-muted hover:underline">
+                            {it.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="border-t border-white/10 pt-4">
+                <Link to={ROUTES.calculators} onClick={() => setMobileOpen(false)} className="block">Calculators</Link>
+                <Link to={ROUTES.blog} onClick={() => setMobileOpen(false)} className="block">Blog</Link>
+                <Link to={ROUTES.about} onClick={() => setMobileOpen(false)} className="block">About</Link>
+                <Link to={ROUTES.contact} onClick={() => setMobileOpen(false)} className="block">Contact</Link>
+              </div>
             </nav>
           </motion.div>
         )}
