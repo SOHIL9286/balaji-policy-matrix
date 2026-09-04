@@ -131,9 +131,9 @@ const galleryItems = [
 ]
 
 const contactInfo = {
-  address: '123 Policy Matrix Avenue, Chennai, Tamil Nadu, India',
-  phones: ['+91 98765 43210', '+91 91234 56789'],
-  email: 'info@balajipolicymatrix.com',
+  address: 'FF 36, 37, 38, Mohan Park Shopping Centre, Sinor Crossing, Dabhoi, Gujarat, India',
+  phones: ['+91 9638622456'],
+  email: 'info@balajiisnurance.co.in',
   hours: ['Mon - Fri: 9:00 AM - 7:00 PM', 'Sat: 10:00 AM - 4:00 PM', 'Sun: Closed'],
 }
 
@@ -428,13 +428,19 @@ function MapContactPreview() {
     <motion.section variants={sectionFade} className="py-24 bg-gradient-to-b from-white/5 to-transparent">
       <div className="container mx-auto px-6 grid gap-10 lg:grid-cols-[1.2fr_0.8fr]">
         <div className="glass-panel overflow-hidden rounded-[2rem] border border-white/10 bg-white/10">
-          <iframe
-            title="Office Location"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3910.3885673457496!2d80.21995931478671!3d13.080191590680625!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a5267d6e4106ddd%3A0xf78a1115dc0592ad!2sChennai%2C%20Tamil%20Nadu%2C%20India!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
-            className="h-96 w-full border-0"
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+          {(() => {
+            const mapQuery = encodeURIComponent(contactInfo.address)
+            const src = `https://www.google.com/maps?q=${mapQuery}&z=14&output=embed`
+            return (
+              <iframe
+                title="Office Location"
+                src={src}
+                className="h-96 w-full border-0"
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            )
+          })()}
         </div>
         <div className="space-y-6">
           <SectionHeader title="Google Map & Contact Preview" subtitle="Visit our office or reach out directly for personalized support and fast quotes." />
@@ -484,10 +490,10 @@ function FinalCTA() {
             <a href={`mailto:${siteConfig.contact.email}`} className="inline-flex items-center justify-center rounded-full bg-brand-primary px-8 py-4 text-white transition hover:bg-brand-secondary">
               Get Free Quote
             </a>
-            <a href="https://wa.me/919876543210" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 py-4 text-white transition hover:border-brand-secondary hover:text-brand-secondary">
+            <a href={`https://wa.me/${siteConfig.contact.phone.replace(/\D/g, '')}`} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 py-4 text-white transition hover:border-brand-secondary hover:text-brand-secondary">
               WhatsApp Now
             </a>
-            <a href="tel:+919876543210" className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 py-4 text-white transition hover:border-brand-secondary hover:text-brand-secondary">
+            <a href={`tel:${siteConfig.contact.phone.replace(/\D/g, '')}`} className="inline-flex items-center justify-center rounded-full border border-white/15 bg-white/10 px-8 py-4 text-white transition hover:border-brand-secondary hover:text-brand-secondary">
               Call Now
             </a>
           </div>

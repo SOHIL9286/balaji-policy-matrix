@@ -5,9 +5,9 @@ type MapProps = {
 }
 
 export default function Map({ address, lat, lng }: MapProps) {
-  const query = lat && lng ? `${lat},${lng}` : encodeURIComponent(address ?? 'Chennai, India')
+  const query = lat && lng ? `${lat},${lng}` : (address ?? 'Balaji Policy Matrix LLP')
   const src = `https://www.google.com/maps?q=${encodeURIComponent(query)}&z=14&output=embed`
-  const openHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(address ?? query)}`
+  const openHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
 
   return (
     <div className="relative glass-panel p-4 rounded-2xl">

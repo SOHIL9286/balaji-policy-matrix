@@ -11,7 +11,7 @@ export function CTASection() {
         </div>
         <motion.div whileHover={{ scale: 1.02 }} className="flex flex-col gap-3 sm:flex-row">
           <a href="#contact" className="inline-flex items-center justify-center rounded-full bg-brand-primary px-6 py-3 text-sm font-semibold text-white shadow-[0_18px_50px_rgba(34,197,94,0.18)]">Get Free Quote</a>
-          <a href="https://wa.me/919999999999" target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white">WhatsApp Us</a>
+          <a href={`https://wa.me/919638622456`} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full border border-white/10 bg-white/5 px-6 py-3 text-sm font-semibold text-white">WhatsApp Us</a>
         </motion.div>
       </div>
     </section>

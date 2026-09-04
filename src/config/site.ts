@@ -21,11 +21,12 @@ export const siteConfig = {
     twitter: '@balajipolicymatrix',
   },
   contact: {
-    email: 'info@balajipolicymatrix.com',
-    phone: '+91 XXXXX XXXXX',
-    address: 'Chennai, Tamil Nadu, India',
-    lat: 13.0827,
-    lng: 80.2707,
+    email: 'info@balajiisnurance.co.in',
+    phone: '+91 9638622456',
+    address: `FF 36, 37, 38\nMohan Park Shopping Centre\nSinor Crossing\nDabhoi, Gujarat, India`,
+    // lat/lng left as 0 so Map falls back to address search
+    lat: 0,
+    lng: 0,
   },
 } as const
 
