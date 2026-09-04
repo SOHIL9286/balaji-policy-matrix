@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { siteConfig } from '@/config/site'
+import { motion } from 'framer-motion'
 
 export default function ContactForm() {
   const [name, setName] = useState('')
@@ -31,8 +31,10 @@ export default function ContactForm() {
     setIsSubmitting(true)
 
     try {
-      const phone = siteConfig.contact.phone.replace(/\D/g, '')
-      const text = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage: ${message}`)
+      const phone = '919638622456'
+      const text = encodeURIComponent(
+        `Hello Balaji Policy Matrix,\n\nName: ${name}\nEmail: ${email}\nMessage: ${message}\n\nI would like to contact you.`
+      )
       const href = `https://wa.me/${phone}?text=${text}`
       // open WhatsApp in a new tab/window
       window.open(href, '_blank')
@@ -48,49 +50,61 @@ export default function ContactForm() {
   }
 
   return (
-    <form onSubmit={handleSubmit} className="glass-panel p-6 rounded-2xl" noValidate>
+    <motion.div whileHover={{ translateY: -6 }} transition={{ type: 'spring', stiffness: 120 }} className="">
+      <form onSubmit={handleSubmit} noValidate className="space-y-4">
       <label className="block">
-        <span className="text-sm font-medium">Name</span>
+        <span className="text-sm font-medium text-white/90">Name</span>
         <input
           required
+          type="text"
+          placeholder="Enter your name"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          className="mt-2 w-full rounded-md border border-white/10 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          className="mt-2 h-12 w-full input-3d"
           aria-invalid={!!error && !name}
         />
       </label>
 
-      <label className="block mt-4">
-        <span className="text-sm font-medium">Email</span>
+      <label className="block mt-2">
+        <span className="text-sm font-medium text-white/90">Email</span>
         <input
           required
           type="email"
+          placeholder="Enter your email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          className="mt-2 w-full rounded-md border border-white/10 bg-transparent px-3 py-2 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          className="mt-2 h-12 w-full input-3d"
           aria-invalid={!!error && !isValidEmail(email)}
         />
       </label>
 
-      <label className="block mt-4">
-        <span className="text-sm font-medium">Message</span>
+      <label className="block mt-2">
+        <span className="text-sm font-medium text-white/90">Message</span>
         <textarea
           required
+          placeholder="Enter your message"
           value={message}
           onChange={(e) => setMessage(e.target.value)}
-          className="mt-2 w-full rounded-md border border-white/10 bg-transparent px-3 py-2 h-32 focus:outline-none focus:ring-2 focus:ring-brand-primary"
+          className="mt-2 w-full input-3d h-36"
           aria-invalid={!!error && !message}
         />
       </label>
 
       <div className="mt-4">
-        <button disabled={isSubmitting} type="submit" className="px-4 py-2 bg-brand-primary text-white rounded-lg disabled:opacity-60">
+        <motion.button
+          whileHover={{ y: -4, boxShadow: '0 30px 60px rgba(13,71,161,0.24)' }}
+          whileTap={{ scale: 0.97 }}
+          disabled={isSubmitting}
+          type="submit"
+          className="btn-3d disabled:opacity-60"
+        >
           {isSubmitting ? 'Sending...' : 'Send Message'}
-        </button>
+        </motion.button>
       </div>
 
       {error ? <p className="mt-3 text-sm text-rose-400">{error}</p> : null}
       {success ? <p className="mt-3 text-sm text-emerald-400">{success}</p> : null}
-    </form>
+      </form>
+    </motion.div>
   )
 }

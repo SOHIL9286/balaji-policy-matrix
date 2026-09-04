@@ -1,5 +1,6 @@
 import { Link, NavLink } from 'react-router-dom'
 import { siteConfig } from '@/config/site'
+import balajiLogo from '@/assets/balaji-logo.svg'
 import { ROUTES } from '@/config/routes'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -49,25 +50,27 @@ export function Header({ className }: HeaderProps) {
   }, [openServices])
 
   return (
-    <header
-      className={cn(
-        'sticky top-0 z-50 transition-shadow backdrop-blur-md',
-        scrolled ? 'shadow-lg bg-background/80 border-b border-border' : 'bg-transparent',
-        className,
-      )}
-    >
-      <div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center gap-4">
-          <button className="md:hidden p-2 rounded-md" aria-label="Open menu" onClick={() => setMobileOpen(!mobileOpen)}>
-            {mobileOpen ? <X size={18} /> : <Menu size={18} />}
-          </button>
+    <header className={cn('sticky top-0 z-50 transition-shadow backdrop-blur-md', className)}>
+      <div className="flex justify-center px-4 sm:px-6 lg:px-8">
+        <div
+          className={cn(
+            'w-full max-w-7xl rounded-full transition-all',
+            scrolled ? 'shadow-lg bg-background/80 border border-white/10' : 'bg-white/5',
+          )}
+          style={{ padding: '6px' }}
+        >
+          <div className="mx-auto flex h-12 items-center justify-between px-4">
+            <div className="flex items-center gap-4">
+              <button className="md:hidden p-2 rounded-md" aria-label="Open menu" onClick={() => setMobileOpen(!mobileOpen)}>
+                {mobileOpen ? <X size={18} /> : <Menu size={18} />}
+              </button>
 
-          <Link to={ROUTES.home} className="text-lg font-semibold tracking-tight transition-opacity hover:opacity-80">
-            {siteConfig.shortName}
-          </Link>
-        </div>
+              <Link to={ROUTES.home} className="flex items-center gap-3">
+                <img src={balajiLogo} alt={`${siteConfig.shortName} logo`} className="h-10 object-contain" />
+              </Link>
+            </div>
 
-        <nav aria-label="Primary navigation" className="hidden md:flex md:items-center md:gap-6">
+            <nav aria-label="Primary navigation" className="hidden md:flex md:items-center md:gap-6">
           <button
             id="header-services-btn"
             ref={servicesButtonRef}
@@ -103,9 +106,9 @@ export function Header({ className }: HeaderProps) {
           <NavLink to={ROUTES.contact} className={({ isActive }) => cn('px-2 py-1 rounded-md', isActive ? 'text-brand-primary font-medium' : 'text-muted')}>
             Contact
           </NavLink>
-        </nav>
+          </nav>
 
-        <div className="flex items-center gap-3">
+          <div className="flex items-center gap-3">
           <div className="relative">
             <button aria-label="Search" onClick={() => setOpenSearch((s) => !s)} className="p-2 rounded-md hover:bg-white/5">
               <Search size={16} />
@@ -137,6 +140,8 @@ export function Header({ className }: HeaderProps) {
                 </motion.div>
               )}
             </AnimatePresence>
+          </div>
+            </div>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ export default function Map({ address, lat, lng }: MapProps) {
   const openHref = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`
 
   return (
-    <div className="relative glass-panel p-4 rounded-2xl">
+    <div className="relative p-0 rounded-2xl overflow-hidden">
       <a
         className="absolute left-3 top-3 z-10 inline-flex items-center gap-2 rounded bg-white/90 px-3 py-1 text-sm font-medium text-slate-700 shadow"
         href={openHref}
@@ -20,7 +20,7 @@ export default function Map({ address, lat, lng }: MapProps) {
         Open in Maps
       </a>
 
-      <iframe title="office-map" src={src} width="100%" height="320" className="rounded-md border-0" />
+      <iframe title="office-map" src={src} width="100%" height="320" className="block w-full h-72 border-0" />
     </div>
   )
 }
